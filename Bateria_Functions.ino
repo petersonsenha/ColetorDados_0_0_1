@@ -9,7 +9,7 @@
 #include "Wire.h"
 
 INA219 INA(0x40);
-
+double consumo_mAh=0;
 
 void setupCurrent()
 {
@@ -48,6 +48,7 @@ void loopCurrent()
   Serial.println("\n\tBUS\t\tSHUNT\t\tCURRENT\t\tPOWER\t\tOVF\t\tCNVR");
   for (int i = 0; i < 5; i++)
   {
+    consumo_mAh += INA.getPower_mW();
     Serial.print("\t");
     Serial.print(INA.getBusVoltage(), 2);
     Serial.print("\t\t");
@@ -63,6 +64,7 @@ void loopCurrent()
     Serial.println();
     vTaskDelay(pdMS_TO_TICKS(1000));
   }
+
   Serial.println("Está Conectado : "+String(INA.isConnected()));
   Serial.println("Está Calibrado : "+String(INA.isCalibrated()));
   Serial.println("Brilho : "+String(hmi.getBrightness()));

@@ -9,15 +9,16 @@
 //***********************************************************************************************************************
 #define STATUS_OK         0
 #define STATUS_BLOCKED    1
+
 #define STATUS_WAITING    2
 uint8_t stateLed=0;
 uint8_t stateLedLast=stateLed;
 
 void setupLed(){
   digitalWrite(RGB_BUILTIN, HIGH);   // Turn the RGB LED white
-  vTaskDelay(pdMS_TO_TICKS(1000);
+  vTaskDelay(pdMS_TO_TICKS(1000));
   digitalWrite(RGB_BUILTIN, LOW);    // Turn the RGB LED off
-  vTaskDelay(pdMS_TO_TICKS(1000);
+  vTaskDelay(pdMS_TO_TICKS(1000));
 }
 void testeLed(){
   neopixelWrite(RGB_BUILTIN,0,0,RGB_BRIGHTNESS); // Blue

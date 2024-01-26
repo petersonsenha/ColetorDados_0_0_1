@@ -2,20 +2,20 @@
 /* https://emojipedia.org/  -   Emojis : 🔘  ✅  ❌  💪🏾 🚩  ▶️   ⚙️    ℹ️
   Microcontrolador : ESP32S3N16R8
   Display : DMG80480C070_03WTC
-  
+
     🚩Coletor de Dados - Comunicação com a Placa do Sensor - Versão 0.0.1                                           [27/12/2023]  ->  [//]
-      ✅  --- [Sensor]    Comunicação com OneWire                                                                   [//]  ->  [//]
-      🔘  --- [Display]   Função que Exibe os dados do sensor em uma variável numérica                              [27/12/2023]  ->  [//]
-      🔘  --- [WebServer] Função que Exibe os dados do sensor em uma variável numérica                              [27/12/2023]  ->  [//]
-      🔘  --- [ESP32]     Função que verifica a conexão entre os sensores e lista qual sensor está conectado        [27/12/2023]  ->  [//]
-      🔘  --- [ESP32]     Função que verifica a conexão entre os sensores e lista qual sensor está conectado        [27/12/2023]  ->  [//]
-      🔘  --- [Display]   Função que verifica qual sensor pode ser utilizado em qual canal                          [27/12/2023]  ->  [//]
-      🔘  --- [ESP32]     Função que verifica qual sensor pode ser utilizado em qual canal                          [27/12/2023]  ->  [//]
-      🔘  --- [Display]   Função que Exibe os dados do sensor em um canal de gráfico                                [27/12/2023]  ->  [//]
-      🔘  --- [Display]   Criar tela para cada sensor explicando seu funcionamento                                  [27/12/2023]  ->  [//]
-      🔘  --- [Display]   Conseguir pegar os dados de 4 tipos e mostrar no display (Bit, Byte, Int, Float)          [//]  ->  [//]
-      🔘  --- [ESP32]     Criar modelo de fluxo de telas                                                            [//]  ->  [//]
-      🔘  --- [ESP32]     Criar modelo de fluxo de botões e variáveis                                               [//]  ->  [//]
+      ✅  0.0.1   --- [Sensor]    Comunicação com OneWire                                                                   [//]  ->  [//]
+      🔘  0.0.2   --- [Display]   Função que Exibe os dados do sensor em uma variável numérica                              [27/12/2023]  ->  [//]
+      🔘  0.0.3   --- [WebServer] Função que Exibe os dados do sensor em uma variável numérica                              [27/12/2023]  ->  [//]
+      🔘  0.0.4   --- [ESP32]     Função que verifica a conexão entre os sensores e lista qual sensor está conectado        [27/12/2023]  ->  [//]
+      🔘  0.0.5   --- [ESP32]     Função que verifica a conexão entre os sensores e lista qual sensor está conectado        [27/12/2023]  ->  [//]
+      🔘  0.0.6   --- [Display]   Função que verifica qual sensor pode ser utilizado em qual canal                          [27/12/2023]  ->  [//]
+      🔘  0.0.7   --- [ESP32]     Função que verifica qual sensor pode ser utilizado em qual canal                          [27/12/2023]  ->  [//]
+      🔘  0.0.8   --- [Display]   Função que Exibe os dados do sensor em um canal de gráfico                                [27/12/2023]  ->  [//]
+      🔘  0.0.9   --- [Display]   Criar tela para cada sensor explicando seu funcionamento                                  [27/12/2023]  ->  [//]
+      🔘  0.0.10   --- [Display]   Conseguir pegar os dados de 4 tipos e mostrar no display (Bit, Byte, Int, Float)          [//]  ->  [//]
+      🔘  0.0.11   --- [ESP32]     Criar modelo de fluxo de telas                                                            [//]  ->  [//]
+      🔘  0.0.12   --- [ESP32]     Criar modelo de fluxo de botões e variáveis                                               [//]  ->  [//]
       
   🔘 Coletor de Dados - Experimentos - Versão 0.0.2                                                                 [//]  ->  [//]
       🔘  --- [Display]   Criar as Telas para cada Experimento [Introdução - Experimento - Questionário]            [//]  ->  [//]
@@ -32,9 +32,9 @@
       🔘  --- [Display]   Gerar uma máquina de estados finitas para o display                                       [//]  ->  [//]
       🔘  --- [WebServer] Subir os dados para o WebServer de acordo com qual página esteja                          [//]  ->  [//]
       🔘  --- [WebServer] Criar páginas para o WebServer de acordo com qual experimento esteja                      [//]  ->  [//]
-  🔘 Coletor de Dados - Versão 0.0.5                                                                                [//]  ->  [//]
+  🔘 Coletor de Dados - STATUS do Equipamento - Versão 0.0.5                                                                                [//]  ->  [//]
       ✅  --- [ESP32]     Elaborar Status de conexão para o LED RGB                                                 [//]  ->  [//]
-      🔘  --- [ESP32]     Obter Tensão e Corrente do Equipamento                                                    [//]  ->  [//]
+      ✅  --- [ESP32]     Obter Tensão e Corrente do Equipamento                                                    [//]  ->  [//]
       🔘  ---                                                                             [//]  ->  [//]
   🔘 Coletor de Dados - Atualização do Display pelo ESP32   -   Versão 0.0.5                                        [//]  ->  [//]
       ✅  --- [ESP32]     Receber arquivos .bin e .icl e armazenar na memória do ESP32                              [//]  ->  [//]
@@ -299,7 +299,7 @@ void setup() {
   setupCurrent();
   hmi.restartHMI();
   hmi.beepHMI();
-  hmi.setPage(1);
+  switchPageWithFadeBrightness(1);
   hmi.setBrightness(10);
   ativarTasks();
 }

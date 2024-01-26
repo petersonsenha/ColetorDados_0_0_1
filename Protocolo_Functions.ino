@@ -134,12 +134,12 @@ byte getOperationValueNow(int _wire){
 //**************************************************************************************************************************
 
 // Protocolo - Getters & Setters [ ℹ️  INFO | ⚙️ CONFIG | ▶️ OPERATION | 🚩 ALARMS]
-#define INFO_GET_STATUS
-#define INFO_GET_SERIALNUMBER
-#define INFO_GET_PRODUCTION_DAY
-#define INFO_GET_PRODUCTION_MONTH
-#define INFO_GET_PRODUCTION_YEAR
-#define INFO_GET_TYPE_SENSOR
+#define INFO_GET_STATUS                   0x10
+#define INFO_GET_SERIALNUMBER             0x11
+#define INFO_GET_PRODUCTION_DAY           0x12
+#define INFO_GET_PRODUCTION_MONTH         0x13
+#define INFO_GET_PRODUCTION_YEAR          0x14
+#define INFO_GET_TYPE_SENSOR              0x15
 #define INFO_SET_STATUS
 #define INFO_SET_SERIALNUMBER
 #define INFO_SET_PRODUCTION_DAY
@@ -147,12 +147,12 @@ byte getOperationValueNow(int _wire){
 #define INFO_SET_PRODUCTION_YEAR
 #define INFO_SET_TYPE_SENSOR
 
-#define CONFIG_GET_STATUS
-#define CONFIG_GET_TYPE
-#define CONFIG_GET_VARIABLE
-#define CONFIG_GET_RESOLUTION
-#define CONFIG_GET_INITIAL
-#define CONFIG_GET_FINAL
+#define CONFIG_GET_STATUS                 0x20
+#define CONFIG_GET_TYPE                   0x21
+#define CONFIG_GET_VARIABLE               0x22
+#define CONFIG_GET_RESOLUTION             0x23
+#define CONFIG_GET_INITIAL                0x24
+#define CONFIG_GET_FINAL                  0x25
 #define CONFIG_SET_STATUS
 #define CONFIG_SET_TYPE
 #define CONFIG_SET_VARIABLE
@@ -160,13 +160,13 @@ byte getOperationValueNow(int _wire){
 #define CONFIG_SET_INITIAL
 #define CONFIG_SET_FINAL
 
-#define OPERATION_GET_STATUS
-#define OPERATION_GET_ENABLE
-#define OPERATION_GET_MODEREAD
-#define OPERATION_GET_SENDTIME
-#define OPERATION_GET_RESOLUTION
-#define OPERATION_GET_VALUENOW
-#define OPERATION_GET_
+#define OPERATION_GET_STATUS              0x30
+#define OPERATION_GET_ENABLE              0x31
+#define OPERATION_GET_MODEREAD            0x32
+#define OPERATION_GET_SENDTIME            0x33
+#define OPERATION_GET_RESOLUTION          0x34
+#define OPERATION_GET_VALUENOW            0x35
+#define OPERATION_GET_                    0x36
 #define OPERATION_GET_
 #define OPERATION_SET_STATUS
 #define OPERATION_SET_ENABLE
@@ -177,12 +177,12 @@ byte getOperationValueNow(int _wire){
 #define OPERATION_SET_
 #define OPERATION_SET_
 
-#define ALARM_GET_STATUS
-#define ALARM_GET_LOWLEVEL2
-#define ALARM_GET_LOWLEVEL1
-#define ALARM_GET_AVERAGE
-#define ALARM_GET_HIGHLEVEL2
-#define ALARM_GET_HIGHLEVEL1
+#define ALARM_GET_STATUS                  0x40
+#define ALARM_GET_LOWLEVEL2               0x41
+#define ALARM_GET_LOWLEVEL1               0x42
+#define ALARM_GET_AVERAGE                 0x43
+#define ALARM_GET_HIGHLEVEL2              0x44
+#define ALARM_GET_HIGHLEVEL1              0x45
 #define ALARM_SET_STATUS
 #define ALARM_SET_LOWLEVEL2
 #define ALARM_SET_LOWLEVEL1

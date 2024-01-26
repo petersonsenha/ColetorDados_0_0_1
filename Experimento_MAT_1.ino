@@ -25,7 +25,7 @@ Botão 3     Ao ser apertado: ele utiliza o valor da Parede X e da Parede Y e mu
 #define VP_Button_Parede_Y            0x2014
 #define VP_Button_Parede_Area         0x2015
 
-int Wire_Sensor_Ultrassonic = OneWire_PIN_1;
+uint8_t Wire_Sensor_Ultrassonic = 13;
 bool runExperimento=false;
 int Parede_X=0;
 int Parede_Y=0;
