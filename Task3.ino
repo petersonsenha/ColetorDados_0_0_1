@@ -3,6 +3,8 @@
 */
 void Task3code(void* pvParameters) {
   for (;;) {
-    vTaskDelay(1);    
+    //loopDisplay();
+    //hmi.listen();
+    vTaskDelay(1);
   } 
 }

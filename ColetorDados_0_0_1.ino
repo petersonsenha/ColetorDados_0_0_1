@@ -118,6 +118,7 @@ DWIN hmi(DGUS_SERIAL, RX_PIN_DWIN, TX_PIN_DWIN, DGUS_BAUD);
 DWIN hmi(4, 5, DGUS_BAUD);
 #endif
 //***********************************************************************************************************************
+#define MODO_LEITURALIVRE   5
 #define EXPERIMENTO_MAT_1   42
 #define EXPERIMENTO_MAT_2   43
 #define EXPERIMENTO_MAT_3   44
@@ -295,8 +296,8 @@ void setup() {
   // put your setup code here, to run once:
   Serial.begin(115200);
   setupLed();
-  testeLed();
-  setupCurrent();
+  //testeLed();
+  //setupCurrent();
   hmi.restartHMI();
   hmi.beepHMI();
   switchPageWithFadeBrightness(1);
@@ -305,5 +306,5 @@ void setup() {
 }
 void loop() {
   // put your main code here, to run repeatedly:
-  loopDisplay();
+  disableLoopWDT();
 }

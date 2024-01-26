@@ -4,24 +4,23 @@
 // PURPOSE: demo
 //     URL: https://github.com/RobTillaart/INA219
 
+//https://github.com/st-sw/STC3115GenericDriver
 
 #include "INA219.h"
 #include "Wire.h"
 
 INA219 INA(0x40);
-double consumo_mAh=0;
+double consumo_mAh = 0;
 
-void setupCurrent()
-{
+void setupCurrent() {
   Serial.begin(115200);
   Serial.println(__FILE__);
   Serial.print("INA219_LIB_VERSION: ");
   Serial.println(INA219_LIB_VERSION);
-
-  Wire.begin(13,12);
-  if (!INA.begin()){
+  Wire.begin(13, 12);
+  if (!INA.begin()) {
     Serial.println("Could not connect. Fix and Reboot");
-    while(1){}
+    while (1) {}
   }
   INA.setMaxCurrentShunt(1, 0.002);
   vTaskDelay(pdMS_TO_TICKS(1000));
@@ -37,24 +36,18 @@ void setupCurrent()
   //  vTaskDelay(pdMS_TO_TICKS(1000));
   //  INA.setMaxCurrentShunt(20, 0.002);
   //  vTaskDelay(pdMS_TO_TICKS(10000);
-
   Serial.println(INA.getBusVoltageRange());
-
 }
-
-
-void loopCurrent()
-{
+void loopCurrent() {
   Serial.println("\n\tBUS\t\tSHUNT\t\tCURRENT\t\tPOWER\t\tOVF\t\tCNVR");
-  for (int i = 0; i < 5; i++)
-  {
+  for (int i = 0; i < 5; i++) {
     consumo_mAh += INA.getPower_mW();
     Serial.print("\t");
     Serial.print(INA.getBusVoltage(), 2);
     Serial.print("\t\t");
     Serial.print(INA.getShuntVoltage_mV(), 2);
     Serial.print("\t\t");
-    Serial.print(0.692864*(INA.getCurrent_mA()), 2);
+    Serial.print(0.692864 * (INA.getCurrent_mA()), 2);
     Serial.print("\t\t");
     Serial.print(INA.getPower_mW(), 2);
     Serial.print("\t\t");
@@ -65,9 +58,9 @@ void loopCurrent()
     vTaskDelay(pdMS_TO_TICKS(1000));
   }
 
-  Serial.println("Está Conectado : "+String(INA.isConnected()));
-  Serial.println("Está Calibrado : "+String(INA.isCalibrated()));
-  Serial.println("Brilho : "+String(hmi.getBrightness()));
+  Serial.println("Está Conectado : " + String(INA.isConnected()));
+  Serial.println("Está Calibrado : " + String(INA.isCalibrated()));
+  Serial.println("Brilho : " + String(hmi.getBrightness()));
   vTaskDelay(pdMS_TO_TICKS(1000));
 }
 

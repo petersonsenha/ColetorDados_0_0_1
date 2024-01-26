@@ -6,6 +6,6 @@ void Task6code(void* pvParameters) {
   setupWifi();
   for (;;) {
     ArduinoOTA.handle();
-    vTaskDelay(1);    
+    vTaskDelay(1);
   } 
 }

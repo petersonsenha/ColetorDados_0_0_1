@@ -15,6 +15,7 @@ void Task5code(void* pvParameters) {
 void treatSerial(String rx){
   if(rx.startsWith("B")){treatBrilho(rx.substring(1,rx.length()));}
   if(rx.startsWith("P")){treatPage(rx.substring(1,rx.length()));}
+  rx="";
 }
 void treatBrilho(String rx){
   String rx_aux = rx.substring(1,rx.length());
@@ -24,6 +25,9 @@ void treatBrilho(String rx){
   brilhoDisplay(brilho);
 }
 void treatPage(String rx){
-  static int page = rx.toInt();
+  hmi.beepHMI();
+  String rx_aux = rx.substring(1,rx.length());
+  static int page = byte(rx.toInt());
   hmi.setPage(page);
+  rx="";
 }

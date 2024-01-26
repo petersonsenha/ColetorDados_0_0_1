@@ -3,7 +3,7 @@
 */
 void Task4code(void* pvParameters) {
   for (;;) {
-    loopCurrent();
+    //loopCurrent();
     vTaskDelay(1);    
   } 
 }

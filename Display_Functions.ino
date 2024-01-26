@@ -20,6 +20,7 @@ void loopDisplay() {
     pageLast = pageAtual;
     Serial.println("Mudou a Tela");
   }
+  vTaskDelay(100);
 }
 void brilhoDisplay(byte _percentual) {  // 5A A5 04 82 00 82 01
   hmi.beepHMI();
@@ -62,7 +63,7 @@ void switchPageWithFadeBrightness(int pageDestiny) {
   hmi.setPage(pageDestiny);
   fadeOutBrigthness();
 }
-void checkSensorWithExperiments(int modo, int porta, int ){
+bool checkSensorWithExperiments(int modo, int porta, int ){
   if (modo == MODO_LEITURALIVRE) {
     return true;
   } else {
@@ -157,8 +158,9 @@ void showVariableLongBySensor(int modo, int sensor, long addressVP, long value) 
 void showVariableFloatBySensor(int modo, int sensor, long addressVP, float value) {
   hmi.setVP_Float(addressVP, value);
 }
+void showVariableByteInCurveDisplay(int modo, int sensor, byte channel, byte value){
 
-
+}
 //void graphChannel
 //hmi.pushValueGraph(CHANNEL_UMIDADE, humidity,0x01);
 
@@ -206,7 +208,8 @@ void showVariableFloatBySensor(int modo, int sensor, long addressVP, float value
 // changeColor();
 // changeLineWidth();
 // up
-//
+// Draw Graphic   -   https://www.youtube.com/watch?v=jn3_Ex4sULM
+
 // Icon Superposition - https://www.youtube.com/watch?v=UXHSvxIYnbk
 //
 // Icon Rotation  - https://youtu.be/c16joloRxP8?si=RNchaEeEXoxgNImJ
@@ -237,10 +240,11 @@ void showVariableFloatBySensor(int modo, int sensor, long addressVP, float value
 // Text Input - https://www.youtube.com/watch?v=dd2aR9k2ptk
 // Text Display  -   https://www.youtube.com/watch?v=lCtiVFDynVM
 // Difference between DGUSII text and Text display -  https://www.youtube.com/watch?v=zX4bjhzRxOc
-//
+
 // Roller Character -   https://www.youtube.com/watch?v=M5pz_mCLt2c
-//
+
 // Save data into flash - https://www.youtube.com/watch?v=7u4UsO_iW0Q
+// Read-Write Fuction of Flash    -   https://www.youtube.com/watch?v=thKURgsK2gs
 
 // SetCFG - https://www.youtube.com/watch?v=xlTQCzlsYqM
 
@@ -251,3 +255,8 @@ void showVariableFloatBySensor(int modo, int sensor, long addressVP, float value
 // Multilingual Interface - https://www.youtube.com/watch?v=Pokubl0EnW0
 
 // Brightness Adjustment  - https://www.youtube.com/watch?v=CkWxX4tRJ7g   -   https://www.youtube.com/watch?v=KoTL4wv8oFw
+// Area Brightness Adjustment   -   https://www.youtube.com/watch?v=8ipvrwnOJrs
+
+// HEX Variable Control   - https://www.youtube.com/watch?v=w02t5qjb990
+
+// 
