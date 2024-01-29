@@ -19,7 +19,7 @@ void treatSerial(String rx){
 }
 void treatBrilho(String rx){
   String rx_aux = rx.substring(1,rx.length());
-  static byte brilho = byte(rx.toInt());
+  byte brilho = byte(rx.toInt());
   Serial.println("Brilho configurado para : "+String(rx.toInt()));
   hmi.setBrightness(brilho);
   brilhoDisplay(brilho);
@@ -27,7 +27,8 @@ void treatBrilho(String rx){
 void treatPage(String rx){
   hmi.beepHMI();
   String rx_aux = rx.substring(1,rx.length());
-  static int page = byte(rx.toInt());
+  int page = byte(rx.toInt());
+  Serial.println("Indo para página : "+String(page));
   hmi.setPage(page);
   rx="";
 }
